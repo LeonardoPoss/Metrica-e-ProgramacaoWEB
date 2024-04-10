@@ -1,0 +1,30 @@
+.container-principal{
+    display: flex;
+    height: 100%;
+}
+.container{
+    display: flex;
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    padding: 1% ;
+    border: border-box;
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 1%;
+    justify-content: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+
+.content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body{
+    margin: 0px;
+}
