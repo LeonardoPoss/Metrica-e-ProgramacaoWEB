@@ -39,7 +39,7 @@ enum ClassificacaoImcEnum: string
     }
     public static function classifica_adolescente(float $imc, string $sexo, int $idade): string
     {
-        $percentisFemininos = [
+        $Femininos = [
             10 => [14.23, 15.09, 17.00, 20.19, 23.20],
             11 => [14.60, 15.53, 17.67, 21.18, 24.59],
             12 => [14.98, 15.98, 18.35, 22.17, 25.95],
@@ -52,7 +52,7 @@ enum ClassificacaoImcEnum: string
             19 => [16.87, 18.20, 20.80, 25.85, 30.72]
         ];
          
-        $percentisMasculinos = [
+        $Masculinos = [
             10 => [14.42, 15.15, 16.72, 19.60, 22.60],
             11 => [14.83, 15.59, 17.28, 20.35, 23.70],
             12 => [15.24, 16.06, 17.87, 21.12, 24.89],
@@ -65,17 +65,17 @@ enum ClassificacaoImcEnum: string
             19 => [17.80, 19.20, 21.86, 26.36, 30.66]
         ];
     
-        $percentis = ($sexo === 'M') ?  $percentisMasculinos[$idade] : $percentisFemininos[$idade];
+        $tabela = ($sexo === 'M') ?  $Masculinos[$idade] : $Femininos[$idade];
          
-        if ($imc < $percentis[0]) {
+        if ($imc < $tabela[0]) {
             return 'Magreza';
-        } elseif ($imc >= $percentis[0] && $imc < $percentis[1]) {
+        } elseif ($imc >= $tabela[0] && $imc < $tabela[1]) {
             return 'Normal';
-        } elseif ($imc >= $percentis[1] && $imc < $percentis[2]) {
+        } elseif ($imc >= $tabela[1] && $imc < $tabela[2]) {
             return 'Sobrepeso';
-        } elseif ($imc >= $percentis[2] && $imc < $percentis[3]) {
+        } elseif ($imc >= $tabela[2] && $imc < $tabela[3]) {
             return 'Obesidade grau I';
-        } elseif ($imc >= $percentis[3] && $imc < $percentis[4]) {
+        } elseif ($imc >= $tabela[3] && $imc < $tabela[4]) {
             return 'Obesidade grau II';
         } else {
             return 'Obesidade grau III';
