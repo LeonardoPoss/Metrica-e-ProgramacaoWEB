@@ -1,22 +1,26 @@
-<?php
-
-class RNexception extends Exception
+class InvalidInputException extends Exception
 {
-    public function __construct(string $message, int $codeError)
+    public function __construct(string $message)
     {
-        parent::__construct($message, $codeError);
-        $this->gerarLog();
+        parent::__construct($message);
     }
+}
 
-    private function gerarLog() 
-    {
-        $str =  'Message: ' . $this->getMessage();
-        $str .= PHP_EOL . 'File: ' . $this->getFile();
-        $str .= PHP_EOL . 'Line:' . $this->getLine();
-        $str .= PHP_EOL . 'ErrorCode: ' . $this->getCode();
-        $str .= PHP_EOL . 'Stack Strace: ' . $this->getTraceAsString();
+ {
+        if ($peso <= 0) {
+            throw new InvalidInputException('Peso deve ser um valor positivo.');
+        }
 
-        file_put_contents(__DIR__ . '../logs_de_erro/log_error.txt', 
-        $str . PHP_EOL, FILE_APPEND);
+        if ($altura <= 0) {
+            throw new InvalidInputException('Altura deve ser um valor positivo.');
+        }
+
+        if (!in_array($sexo->value, SexoEnum::getValues())) {
+            throw new InvalidInputException('Sexo inválido.');
+        }
+
+        if ($dataNascimento > new DateTimeImmutable()) {
+            throw new InvalidInputException('Data de nascimento inválida.');
+        }
     }
 }
