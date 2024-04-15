@@ -4,7 +4,7 @@ require_once __DIR__ . '/src/Usuario.php';
 require_once __DIR__ . '/src/CalculadoraImc.php';
 require_once __DIR__ . '/src/SexoEnum.php';
 require_once __DIR__ . '/src/ClassificacaoImcEnum.php';
-require_once __DIR__ . '/src/logs_de_erro/log_error.txt';
+require_once __DIR__ . '/src/InvalidInputException.php';
 
 
 $usuario = new Usuario( nome: $_POST['nome'], 
