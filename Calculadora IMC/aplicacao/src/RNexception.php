@@ -16,7 +16,7 @@ class RNexception extends Exception
         $str .= PHP_EOL . 'ErrorCode: ' . $this->getCode();
         $str .= PHP_EOL . 'Stack Strace: ' . $this->getTraceAsString();
 
-        file_put_contents(__DIR__ . '../../log_error.txt', 
+        file_put_contents(__DIR__ . '../logs_de_erro/log_error.txt', 
         $str . PHP_EOL, FILE_APPEND);
     }
 }
