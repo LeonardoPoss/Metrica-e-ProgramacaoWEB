@@ -6,13 +6,16 @@ require_once __DIR__ . '/src/SexoEnum.php';
 require_once __DIR__ . '/src/ClassificacaoImcEnum.php';
 require_once __DIR__ . '/src/InvalidInputException.php';
 
-
-$usuario = new Usuario( nome: $_POST['nome'], 
-                        peso: $_POST['peso'], 
-                        altura: $_POST['altura'],
-                        sexo:SexoEnum::from($_POST['sexo']),
-                        dataNascimento: new DateTimeImmutable($_POST['data_nascimento']));
-
+try{
+    $usuario = new Usuario( nome: $_POST['nome'], 
+                            peso: $_POST['peso'], 
+                            altura: $_POST['altura'],
+                            sexo:SexoEnum::from($_POST['sexo']),
+                            dataNascimento: new DateTimeImmutable($_POST['data_nascimento']));
+}catch (InvalidInputException $e) {
+    echo 'Erro: ' . $e->getMessage();
+    exit;
+}
 
 $calculadora = new CalculadoraImc($usuario);
 $idade = $usuario->getIdadeAtual();
