@@ -6,7 +6,9 @@
             parent::__construct($message);
         }
     }
-    
+        $peso = $usuario->getPeso(),
+        $altura = $usuario->getAltura(),
+        $sexo = $usuario->getSexo()->value,
      {
             if ($peso <= 0) {
                 throw new InvalidInputException('Peso deve ser um valor positivo.');
@@ -18,10 +20,6 @@
     
             if (!in_array($sexo->value, SexoEnum::getValues())) {
                 throw new InvalidInputException('Sexo inválido.');
-            }
-    
-            if ($dataNascimento > new DateTimeImmutable()) {
-                throw new InvalidInputException('Data de nascimento inválida.');
             }
         }
     }
