@@ -13,8 +13,7 @@ try{
                             sexo:SexoEnum::from($_POST['sexo']),
                             dataNascimento: new DateTimeImmutable($_POST['data_nascimento']));
 }catch (InvalidInputException $e) {
-    echo 'Erro: ' . $e->getMessage();
-    exit;
+    return 'Erro: ' . invalidinput();
 }
 
 $calculadora = new CalculadoraImc($usuario);
