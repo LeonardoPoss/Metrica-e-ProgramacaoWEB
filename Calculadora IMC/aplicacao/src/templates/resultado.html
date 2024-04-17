@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Calculadora-CSS.CSS">
     <title>Resultado</title>
 </head>
 <body>
     
-    <div>
-        <h3>{{USUARIO}}</h3>
-        <ul>
-            <li>Peso: {{PESO}}</li>
-            <li>Altura: {{ALTURA}}</li>
-            <li>Idade: {{IDADE}}</li>
-            <li>Sexo: {{SEXO}}</li>
-        </ul>
-        <div>
-            <h3>Resultado: {{ICM}}</h3>
-            <h4>Classificação: {{CLASSIFICACAO}}</h4>
+    <div class="container-resultado">
+        <h3 class="titulo">{{USUARIO}}</h3>
+        <div class="content-resultado">
+            <span class="resultado">Peso: {{PESO}}</span>
+            <span class="resultado">Altura: {{ALTURA}}</span>
+            <span class="resultado">Idade: {{IDADE}}</span>
+            <span class="resultado">Sexo: {{SEXO}}</span>
         </div>
+        <div class="content-resultado">
+            <h3 class="resultado">Resultado: {{ICM}}</h3>
+            <h4 class="resultado">Classificação: {{CLASSIFICACAO}}</h4>
+            <a class="button-resultado" href="/index.html">Calcular Novamente</a>
+        </div class="content">
     </div>
-    <a href="/index.html">Calcular Novamente</a>
 </body>
 </html>

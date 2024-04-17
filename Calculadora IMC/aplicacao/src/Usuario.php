@@ -50,6 +50,13 @@ class Usuario
 
     public function getIdadeAtual()
     {
-        return $this->dataNascimento->diff(new DateTimeImmutable(date('Y-m-d')))->y;
+        // Obtém a data atual
+        $hoje = new DateTimeImmutable();
+    
+        // Obtém a data de nascimento do usuário
+        $dataNascimento = $this->dataNascimento;
+
+            return $dataNascimento->diff($hoje)->y + 1;
     }
+    
 }

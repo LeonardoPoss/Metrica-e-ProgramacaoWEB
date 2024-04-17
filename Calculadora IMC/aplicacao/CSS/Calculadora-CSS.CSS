@@ -1,30 +1,165 @@
-.container-principal{
-    display: flex;
-    height: 100%;
-}
 .container{
+    position: relative;
     display: flex;
-    position: absolute;
-    width: 20%;
-    height: 30%;
+    flex-direction: column;
+    width: 40%;
+    height: 50%;
     padding: 1% ;
     border: border-box;
     box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 1%;
-    justify-content: center;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    justify-content:center;
+    align-items: center;
+    overflow: hidden;
     background-color: #fff;
 }
 
-.content{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+.titulo {
+    display: block;
+    padding: 5%;
+    border-top-left-radius: 1%;
+    border-top-right-radius: 1%;
+    font-size: 150%;
+    font-weight: bold;
+    font-family: fantasy;
+    text-align: center;
+    width: 100%;
+    margin-top: -1%;
+    animation: mudarGradiente 15s infinite alternate;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff); /* Gradiente de vermelho para verde para azul */
+    background-size: 400% 400%;
 }
 
-body{
-    margin: 0px;
+.content {
+    padding:4%;
+}
+
+.escrito.wide{
+    width: 100%;
+    padding: 5%;
+    margin-left: -75%;
+    input{
+        display: flex;
+        width: 225%;
+        margin-bottom: 1%;
+        padding: 8%;
+        border: 1px solid #ccc;
+        border-radius: 0.2rem;
+        font-size: 14px;
+    }
+}
+
+.data {
+    display: grid;
+    grid-template-columns: repeat(3, 44%); 
+    gap: 5%; 
+    margin-left: -70%;
+        input{
+            padding: 8%;
+            border: 1px solid #ccc;
+            border-radius: 0.2rem;
+            font-size: 14px;
+        }
+}
+
+select{
+    margin-left: -70%;
+    width: 243.5%;
+    padding: 8%;
+    border: 1px solid #ccc;
+    border-radius: 0.2rem;
+    font-size: 14px;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 245%;
+    padding: 14px;
+    color: #fff;
+    border: none;
+    margin-top: 5%;
+    margin-left: -70%;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: mudarGradiente 15s infinite alternate;
+    background: linear-gradient(45deg, #0000ff, #ff0000);  
+    background-size: 400% 400%;
+}
+
+.container-resultado{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 68%;
+    padding: 1% ;
+    border: border-box;
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 1%;
+    justify-content:center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.content-resultado{
+    padding:1%;
+}
+
+.resultado{
+    padding: 2%;
+    margin-left: -75%;
+    display: flex;
+    width: 225%;
+    margin-bottom: 10%;
+    padding: 15%;
+    border: 1px solid #ccc;
+    border-radius: 0.2rem;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.button-resultado{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 245%;
+    padding: 14px;
+    color: #fff;
+    border: none;
+    margin-top: 5%;
+    margin-left: -75%;
+    margin-bottom: 15%;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration-line: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: mudarGradiente 15s infinite alternate;
+    background: linear-gradient(45deg, #0000ff, #ff0000); 
+    background-size: 400% 400%;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    animation: mudarGradiente 15s infinite alternate;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff); /* Gradiente de vermelho para verde para azul */
+    background-size: 400% 400%;
+}
+
+@keyframes mudarGradiente {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

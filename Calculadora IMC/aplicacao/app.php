@@ -7,14 +7,24 @@ require_once __DIR__ . '/src/ClassificacaoImcEnum.php';
 require_once __DIR__ . '/src/InvalidInputException.php';
 
 try{
+    $dataNascimento = new DateTimeImmutable(
+        $_POST['ano'] . '-' . $_POST['mes'] . '-' . $_POST['dia']);
     $usuario = new Usuario( nome: $_POST['nome'], 
                             peso: $_POST['peso'], 
                             altura: $_POST['altura'],
                             sexo:SexoEnum::from($_POST['sexo']),
-                            dataNascimento: new DateTimeImmutable($_POST['data_nascimento']));
-}catch (InvalidInputException $e) {
-    return 'Erro: ' . invalidinput();
-}
+                            dataNascimento: $dataNascimento);
+                            $erro = invalidinput($usuario);
+
+                            if ($erro !== null) {
+                                // Houve um erro nos inputs
+                                throw new InvalidInputException($erro);
+                            }
+                        
+                        } catch (InvalidInputException $e) {
+                            echo 'Erro: ' . $e->getMessage();
+                            return;
+                        }
 
 $calculadora = new CalculadoraImc($usuario);
 $idade = $usuario->getIdadeAtual();
@@ -38,8 +48,8 @@ $template = str_replace(
     ],
     [
         $usuario->getNome(),
-        $usuario->getPeso(),
-        $usuario->getAltura(),
+        $usuario->getPeso(). ' KG',
+        $altura = number_format($usuario->getAltura(), 2). ' Metros',
         $usuario->getIdadeAtual(),
         $usuario->getSexo()->value,
         $calculadora->calcular(),

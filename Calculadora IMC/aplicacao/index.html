@@ -1,40 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/Calculadora-CSS.CSS">
+    <link rel="stylesheet" href="CSS/Calculadora-CSS.CSS">
     <title>Calculadora IMC</title>
 </head>
-<body>  
-        <div class="container-principal">  
-            <div class="container" > 
-                    <form class="content" action="/app.php" method="POST">
-                        <div>
-                            <input class="escrito" type="text" name="nome" id="nome" placeholder="Nome">
-                        </div>
-                        <div>
-                            <label class="data" for="data_nascimento">Data Nascimento:</label>
-                            <input type="date" name="data_nascimento" id="data_nascimento">            
-                        </div> 
-                        <div>
-                            <input class="escrito" type="number" name="peso" id="peso" step="0.01" placeholder="Peso(KG)">            
-                        </div> 
-                        <div>
-                            <input class="escrito" type="number" name="altura" id="altura" step="0.01" placeholder="Altura em metros">            
-                        </div>  
-                        <div>
-                            <select name="sexo" id="sexo">
-                                <option disabled>Sexo</option>
-                                <option value="Masculino">Masculino</option>
-                                <option value="Feminino">Feminino</option>
-                            </select>
-                        </div>  
-                        <div>
-                            <input class="button" type="submit" value="Calcular">
-                        </div>            
-                    </form>
+
+<div class="container">
+    <div class="titulo">Calculadora IMC</div>
+    <div class="content">
+        <form action="/app.php" method="POST">
+            <div class="escrito wide">
+                <input  type="text" name="nome" id="nome" placeholder="Nome" required>
             </div>
-        </div>      
+            <div class="data">
+                <input type="number" name="dia" id="dia" min="1" max="31" placeholder="Dia" required>
+                <input type="number" name="mes" id="mes" min="1" max="12" placeholder="Mês" required>
+                <input type="number" name="ano" id="ano" min="1900" max="2024" placeholder="Ano" required>
+            </div>
+            
+            <div class="escrito wide">
+                <input type="number" autocomplete="off" name="peso" id="peso" step="0.01" placeholder="Peso(KG)" required>            
+            </div> 
+            <div class="escrito wide">
+                <input  type="number" autocomplete="off" name="altura" id="altura" step="0.01" placeholder="Altura(M)" required>            
+            </div>  
+            <div>
+                <select name="sexo" id="sexo">
+                    <option disabled>Sexo</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+            </div>  
+            <div>
+                <input class="button" type="submit" value="Calcular">
+            </div>            
+        </form>
+    </div>
+</div>
+   
 </body>
 </html>
